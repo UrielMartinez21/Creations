@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let buttonWidth = 80;
     let fontSize = 20; // Starting font size in pixels
     const imagePaths = [
-        images/san_valentin/index_v1/
         "/static/images/san_valentin/index_v1/image1.gif",
         "/static/images/san_valentin/index_v1/image2.gif",
         "/static/images/san_valentin/index_v1/image3.gif",

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Apps
     "san_valentin.apps.SanValentinConfig",
+    "flowers.apps.FlowersConfig",
     'whitenoise',
 ]
 
