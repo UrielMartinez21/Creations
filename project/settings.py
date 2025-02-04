@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'portfolio-um-h9cchrd3g0gja7br.canadacentral-01.azurewebsites.net']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'templ-creations-aqgzdpbghtdagkhx.canadacentral-01.azurewebsites.net']
 
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
