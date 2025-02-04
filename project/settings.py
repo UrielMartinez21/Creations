@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-qe2ewcijs%h$z%78%b!#8r0g^@wolv3(52a7m+niqqp##v5ixj
 # DEBUG = True
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'creations-hcbqhxcrd2bddfea.canadacentral-01.azurewebsites.net']
+ALLOWED_HOSTS = ["*"]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
