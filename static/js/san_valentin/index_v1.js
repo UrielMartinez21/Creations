@@ -12,13 +12,14 @@ document.addEventListener("DOMContentLoaded", function () {
     let buttonWidth = 80;
     let fontSize = 20; // Starting font size in pixels
     const imagePaths = [
-        "/static/images/image1.gif",
-        "/static/images/image2.gif",
-        "/static/images/image3.gif",
-        "/static/images/image4.gif",
-        "/static/images/image5.gif",
-        "/static/images/image6.gif",
-        "/static/images/image7.gif"
+        images/san_valentin/index_v1/
+        "/static/images/san_valentin/index_v1/image1.gif",
+        "/static/images/san_valentin/index_v1/image2.gif",
+        "/static/images/san_valentin/index_v1/image3.gif",
+        "/static/images/san_valentin/index_v1/image4.gif",
+        "/static/images/san_valentin/index_v1/image5.gif",
+        "/static/images/san_valentin/index_v1/image6.gif",
+        "/static/images/san_valentin/index_v1/image7.gif"
     ];
 
     noButton.addEventListener('click', function () {
