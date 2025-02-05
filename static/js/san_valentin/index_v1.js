@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     yesButton.addEventListener('click', () => {
-        imageDisplay.src = '/static/images/image7.gif';
+        imageDisplay.src = '/static/images/san_valentin/index_v1/image7.gif';
         valentineQuestion.textContent = "Yayyy!! :3";
         responseButtons.style.display = 'none';
         confetti();
