@@ -44,8 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Apps
-    "san_valentin.apps.SanValentinConfig",
-    "flowers.apps.FlowersConfig",
+    "celebrations.apps.CelebrationsConfig",
     'whitenoise',
 ]
 

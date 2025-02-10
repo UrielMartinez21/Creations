@@ -12,13 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
     let buttonWidth = 80;
     let fontSize = 20; // Starting font size in pixels
     const imagePaths = [
-        "/static/images/san_valentin/index_v1/image1.gif",
-        "/static/images/san_valentin/index_v1/image2.gif",
-        "/static/images/san_valentin/index_v1/image3.gif",
-        "/static/images/san_valentin/index_v1/image4.gif",
-        "/static/images/san_valentin/index_v1/image5.gif",
-        "/static/images/san_valentin/index_v1/image6.gif",
-        "/static/images/san_valentin/index_v1/image7.gif"
+        "/static/images/valentine/v1/image1.gif",
+        "/static/images/valentine/v1/image2.gif",
+        "/static/images/valentine/v1/image3.gif",
+        "/static/images/valentine/v1/image4.gif",
+        "/static/images/valentine/v1/image5.gif",
+        "/static/images/valentine/v1/image6.gif",
+        "/static/images/valentine/v1/image7.gif"
     ];
 
     noButton.addEventListener('click', function () {
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     yesButton.addEventListener('click', () => {
-        imageDisplay.src = '/static/images/san_valentin/index_v1/image7.gif';
+        imageDisplay.src = '/static/images/valentine/v1/image7.gif';
         valentineQuestion.textContent = "Yayyy!! :3";
         responseButtons.style.display = 'none';
         confetti();

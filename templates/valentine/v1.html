@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valentines Day</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="{% static 'css/san_valentin/index_v1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/valentine/v1.css' %}">
 </head>
 
 <body class="gradient-background">
@@ -16,13 +16,13 @@
         <div class="flex flex-col items-center p-4">
             <img 
                 id="imageDisplay" 
-                src="{% static 'images/san_valentin/index_v1/image1.gif' %}" 
+                src="{% static 'images/valentine/v1/image1.gif' %}" 
                 alt="Cute kitten with flowers" 
                 class="rounded-md h-[300px]"
                 style="object-fit: cover;" 
             />
             <h2 id="valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4">
-                Do you want to be my Valentine, {{name}}?
+                Do you want to be my Valentine {{name}}?
             </h2>
             <div class="flex gap-4 pt-[20px] items-center" id="responseButtons">
                 <button id="yesButton" class="bounce2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium disabled:pointer-events-none disabled:opacity-50 hover:bg-green-400 min-h-12 min-w-[75px] px-4 py-2 bg-green-500 text-white transition">
@@ -35,7 +35,7 @@
         </div>
     </div>
 
-    <script type="module" src="{% static 'js/san_valentin/index_v1.js' %}"></script>
+    <script type="module" src="{% static 'js/valentine/v1.js' %}"></script>
 </body>
 
 </html>
