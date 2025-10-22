@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Apps
-    "celebrations.apps.CelebrationsConfig",
+    "events.apps.EventsConfig",
     'whitenoise',
 ]
 
