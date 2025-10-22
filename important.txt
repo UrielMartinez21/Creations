@@ -1,3 +1,0 @@
-[+] Comandos urieladmin
-    - Despues de desplegar: python manage.py collectstatic --noinput
-    - pip install whitenoise
