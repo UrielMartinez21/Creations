@@ -5,7 +5,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - .:/app
+      - .:/app    # with this line, changes in your local files will be reflected in the container
     command: python manage.py runserver 0.0.0.0:8000
 
   ngrok:
