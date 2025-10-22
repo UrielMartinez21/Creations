@@ -15,3 +15,6 @@ def valentine_v1(request):
 def dentist(request):
     name = request.GET.get('name', '')
     return render(request, 'dentist/v1.html', {'name': name})
+
+def flower_garden(request):
+    return render(request, 'flowers/flower_garden.html')

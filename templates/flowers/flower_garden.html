@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Para ti, mi amor 🌹🌻</title>
+    <style>
+        :root {
+            --bg1: #ffe8ec;
+            --bg2: #fff7cc;
+            --txt: #412a2a;
+            --accent: #e63946;
+            /* rojo rosa */
+            --accent2: #f1c40f;
+            /* girasol */
+            --leaf: #2ecc71;
+            --card: #ffffffdd;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            color: var(--txt);
+            background: radial-gradient(1200px 800px at 10% 10%, var(--bg1), transparent 70%),
+                radial-gradient(1200px 800px at 90% 90%, var(--bg2), transparent 70%),
+                linear-gradient(135deg, #fff, #fff5f6 40%, #fffbea);
+            overflow: hidden;
+        }
+
+        /* Layout */
+        .wrap {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+        }
+
+        .card {
+            width: min(720px, 92vw);
+            backdrop-filter: blur(6px);
+            background: var(--card);
+            border: 1px solid rgba(0, 0, 0, .06);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .08), 0 1px 0 rgba(255, 255, 255, .8) inset;
+            padding: 28px 28px 22px;
+            text-align: center;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: clamp(28px, 4vw, 42px);
+            margin: 8px 0 4px;
+            line-height: 1.15;
+        }
+
+        p.lead {
+            font-size: clamp(16px, 2.2vw, 18px);
+            opacity: .9;
+            margin: 0 0 14px;
+        }
+
+        /* Button */
+        .btn {
+            appearance: none;
+            border: none;
+            padding: 14px 18px;
+            border-radius: 14px;
+            background: linear-gradient(180deg, #ff8aa0, #ff6b81);
+            color: #fff;
+            font-weight: 700;
+            letter-spacing: .3px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(230, 57, 70, .35);
+            transition: transform .12s ease, box-shadow .12s ease, filter .2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px) scale(1.01);
+            filter: brightness(1.03);
+        }
+
+        .btn:active {
+            transform: translateY(1px) scale(.99);
+            box-shadow: 0 4px 12px rgba(230, 57, 70, .3);
+        }
+
+        /* Hidden note */
+        .note {
+            margin: 14px auto 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .6s ease;
+        }
+
+        .note.show {
+            max-height: 320px;
+        }
+
+        .note .bubble {
+            margin: 16px auto 8px;
+            background: #fff;
+            border-radius: 16px;
+            padding: 16px 18px;
+            border: 1px solid rgba(0, 0, 0, .06);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .06);
+            font-size: clamp(16px, 2.4vw, 18px);
+        }
+
+        /* Flowers row */
+        .flowers {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 8px 0 14px;
+        }
+
+        .flower {
+            width: clamp(64px, 14vw, 120px);
+            aspect-ratio: 1/1;
+            position: relative;
+            filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .12));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .flower:nth-child(2) {
+            animation-delay: .4s
+        }
+
+        .flower:nth-child(3) {
+            animation-delay: .8s
+        }
+
+        .flower:nth-child(4) {
+            animation-delay: 1.2s
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-10px)
+            }
+        }
+
+        /* Gentle confetti hearts + pollen */
+        .confetti,
+        .hearts {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            opacity: .9;
+            animation: fall linear forwards;
+        }
+
+        .particle.heart {
+            width: 14px;
+            height: 14px;
+            background: none;
+            transform: rotate(-45deg);
+        }
+
+        .particle.heart::before,
+        .particle.heart::after {
+            content: "";
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background: var(--accent);
+            border-radius: 50%;
+            top: -7px;
+            left: 0;
+        }
+
+        .particle.heart::after {
+            left: 7px;
+            top: 0;
+        }
+
+        .particle.heart {
+            background: var(--accent);
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: .95
+            }
+        }
+
+        /* Footer */
+        .small {
+            font-size: 12px;
+            opacity: .6;
+            margin-top: 8px
+        }
+
+        /* Accessibility helpers */
+        .sr-only {
+            position: absolute;
+            left: -9999px;
+        }
+
+        /* Mobile spacing */
+        @media (max-width:420px) {
+            .card {
+                padding: 22px 18px 16px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- floating decor -->
+    <div class="hearts" aria-hidden="true"></div>
+    <div class="confetti" aria-hidden="true"></div>
+
+    <div class="wrap">
+        <main class="card" role="main" aria-labelledby="tit">
+            <h1 id="tit">Para ti, mi <span style="color:var(--accent)">amor</span> 🌹 <span
+                    style="color:var(--accent2)">🌻</span></h1>
+            <p class="lead">Un pequeño jardín para alegrarte el día. Si hoy fue difícil, recuerda que aquí estoy para
+                ti.</p>
+
+            <div class="flowers" aria-hidden="true">
+                <!-- Girasol -->
+                <svg class="flower" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img"
+                    aria-label="Girasol">
+                    <defs>
+                        <radialGradient id="pollen" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#6b3d0c" />
+                            <stop offset="60%" stop-color="#3e2408" />
+                            <stop offset="100%" stop-color="#2a1504" />
+                        </radialGradient>
+                    </defs>
+                    <circle cx="60" cy="60" r="22" fill="url(#pollen)" />
+                    <!-- pétalos -->
+                    <g fill="#f1c40f">
+                        <!-- 12 pétalos -->
+                        <g transform="translate(60 60)">
+                            <!-- pétalo -->
+                            <g id="pet">
+                                <ellipse rx="10" ry="28" transform="rotate(0) translate(0 -40)" />
+                            </g>
+                            <use href="#pet" transform="rotate(30)" />
+                            <use href="#pet" transform="rotate(60)" />
+                            <use href="#pet" transform="rotate(90)" />
+                            <use href="#pet" transform="rotate(120)" />
+                            <use href="#pet" transform="rotate(150)" />
+                            <use href="#pet" transform="rotate(180)" />
+                            <use href="#pet" transform="rotate(210)" />
+                            <use href="#pet" transform="rotate(240)" />
+                            <use href="#pet" transform="rotate(270)" />
+                            <use href="#pet" transform="rotate(300)" />
+                            <use href="#pet" transform="rotate(330)" />
+                        </g>
+                    </g>
+                    <!-- tallo y hojas -->
+                    <rect x="58" y="60" width="4" height="50" rx="2" fill="#2ecc71" />
+                    <ellipse cx="45" cy="92" rx="16" ry="8" fill="#2ecc71" transform="rotate(-30 45 92)" />
+                    <ellipse cx="75" cy="84" rx="16" ry="8" fill="#2ecc71" transform="rotate(35 75 84)" />
+                </svg>
+
+                <!-- Rosa roja -->
+                <svg class="flower" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img"
+                    aria-label="Rosa roja">
+                    <defs>
+                        <radialGradient id="rose" cx="50%" cy="50%" r="60%">
+                            <stop offset="0%" stop-color="#ffb3bf" />
+                            <stop offset="60%" stop-color="#ff4d6d" />
+                            <stop offset="100%" stop-color="#e63946" />
+                        </radialGradient>
+                    </defs>
+                    <!-- capullo -->
+                    <path d="M60 20
+                   C80 20, 95 40, 80 56
+                   C75 62, 65 64, 60 70
+                   C55 64, 45 62, 40 56
+                   C25 40, 40 20, 60 20 Z" fill="url(#rose)" />
+                    <!-- pétalos internos -->
+                    <path d="M60 28
+                   C70 28, 78 36, 70 44
+                   C66 48, 62 50, 60 54
+                   C58 50, 54 48, 50 44
+                   C42 36, 50 28, 60 28 Z" fill="#ff6b81" />
+                    <circle cx="60" cy="50" r="6" fill="#b11226" />
+                    <!-- tallo -->
+                    <rect x="58" y="70" width="4" height="40" rx="2" fill="#2ecc71" />
+                    <!-- hojas -->
+                    <ellipse cx="45" cy="85" rx="18" ry="8" fill="#2ecc71" transform="rotate(-25 45 85)" />
+                    <ellipse cx="75" cy="95" rx="18" ry="8" fill="#2ecc71" transform="rotate(25 75 95)" />
+                </svg>
+
+                <!-- Otro girasol -->
+                <svg class="flower" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img"
+                    aria-label="Girasol">
+                    <use href="#pet" />
+                    <circle cx="60" cy="60" r="22" fill="url(#pollen)" />
+                    <rect x="58" y="60" width="4" height="50" rx="2" fill="#2ecc71" />
+                    <ellipse cx="75" cy="92" rx="16" ry="8" fill="#2ecc71" transform="rotate(-30 75 92)" />
+                    <ellipse cx="45" cy="84" rx="16" ry="8" fill="#2ecc71" transform="rotate(35 45 84)" />
+                </svg>
+
+                <!-- Otra rosa -->
+                <svg class="flower" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img"
+                    aria-label="Rosa roja">
+                    <path
+                        d="M60 20 C80 20, 95 40, 80 56 C75 62, 65 64, 60 70 C55 64, 45 62, 40 56 C25 40, 40 20, 60 20 Z"
+                        fill="url(#rose)" />
+                    <path
+                        d="M60 28 C70 28, 78 36, 70 44 C66 48, 62 50, 60 54 C58 50, 54 48, 50 44 C42 36, 50 28, 60 28 Z"
+                        fill="#ff6b81" />
+                    <circle cx="60" cy="50" r="6" fill="#b11226" />
+                    <rect x="58" y="70" width="4" height="40" rx="2" fill="#2ecc71" />
+                    <ellipse cx="75" cy="85" rx="18" ry="8" fill="#2ecc71" transform="rotate(-25 75 85)" />
+                    <ellipse cx="45" cy="95" rx="18" ry="8" fill="#2ecc71" transform="rotate(25 45 95)" />
+                </svg>
+            </div>
+
+            <button class="btn" id="reveal">💌 Ver mensaje</button>
+
+            <section class="note" id="note" aria-live="polite">
+                <div class="bubble">
+                    <strong>Mi amor,</strong><br />
+                    como los girasoles, siempre buscaré tu luz; y como las rosas, te cuidaré con todo mi corazón.
+                    Gracias por existir. Hoy y siempre, estoy contigo. 🌹🌻
+                </div>
+            </section>
+
+            <div class="small">Hecho con mucho cariño.</div>
+        </main>
+    </div>
+
+    <script>
+        // Reveal message + burst of corazoncitos
+        const btn = document.getElementById('reveal');
+        const note = document.getElementById('note');
+        const heartsLayer = document.querySelector('.hearts');
+        const confettiLayer = document.querySelector('.confetti');
+
+        let opened = false;
+        btn.addEventListener('click', () => {
+            note.classList.toggle('show');
+            opened = !opened;
+            btn.textContent = opened ? '🌟 Te amo' : '💌 Ver mensaje';
+            burstHearts(18);
+            sprinkle(24);
+        });
+
+        // sprinkle pollen-like confetti (amarillo)
+        function sprinkle(n) {
+            const w = window.innerWidth;
+            for (let i = 0; i < n; i++) {
+                const p = document.createElement('span');
+                p.className = 'particle';
+                p.style.background = ['#f1c40f', '#ffd166', '#f4d35e'][i % 3];
+                p.style.left = Math.random() * w + 'px';
+                p.style.top = '-12px';
+                p.style.animationDuration = (4 + Math.random() * 4) + 's';
+                p.style.transform = 'translateY(0) rotate(' + (Math.random() * 360) + 'deg)';
+                p.style.filter = 'blur(' + (Math.random() * 0.6) + 'px)';
+                confettiLayer.appendChild(p);
+                setTimeout(() => p.remove(), 9000);
+            }
+        }
+
+        // hearts burst (rojos)
+        function burstHearts(n) {
+            const w = window.innerWidth;
+            for (let i = 0; i < n; i++) {
+                const h = document.createElement('span');
+                h.className = 'particle heart';
+                h.style.left = (w / 2 - 60 + Math.random() * 120) + 'px';
+                h.style.top = (window.innerHeight / 2 - 40 + Math.random() * 80) + 'px';
+                h.style.animationDuration = (3 + Math.random() * 3) + 's';
+                h.style.opacity = .9;
+                heartsLayer.appendChild(h);
+                setTimeout(() => h.remove(), 7000);
+            }
+        }
+
+        // gentle ambient confetti drifting down occasionally
+        setInterval(() => sprinkle(4), 2200);
+
+        // Reduce motion preference
+        const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (mq.matches) {
+            document.querySelectorAll('.flower').forEach(f => f.style.animation = 'none');
+            clearInterval();
+        }
+    </script>
+</body>
+
+</html>
